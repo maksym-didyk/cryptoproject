@@ -1,0 +1,93 @@
+@import '../../assets/styles/mixins';
+
+.header {
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0 1.1rem;
+  }
+
+  &__left {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    column-gap: 2rem;
+
+    @include onDesktopMedium {
+      
+    }
+
+    @include onTablet {
+      
+    }
+  
+  }
+
+  &__options {
+    display: flex;
+    border: 1px solid #3E3C39;
+    margin: 0.8rem 0;
+  }
+
+  &__button {
+    padding: 0.3rem 0.5rem;
+    text-transform: uppercase;
+    border: 0;
+    background: none;
+    font-size: 0.6rem;
+    color: #D9D9D9;
+    cursor: pointer;
+    margin: 0.3rem;
+
+    &.active {
+      background: #FCD535;
+      color: #0072B2;
+      font-weight: 500;
+    }
+  }
+
+  &__vr {
+    width: 1px;
+    background: #312F2F;
+    margin: 0.3rem 0;
+
+    &:last-child {
+      display: none;
+    }
+  }
+
+  &__devider {
+    width: 100%;
+    height: 0.8rem;
+    background: #3E3C39;
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+
+    @include onPhone {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__donate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1.5rem;
+    padding: 0 0.5rem;
+    border: 1px solid #3E3C39;
+    text-transform: uppercase;
+    font-size: 0.5rem;
+  }
+
+  &__icon {
+    height: 1.5rem;
+    width: 1.5rem;
+    cursor: pointer;
+  }
+}
