@@ -17,9 +17,9 @@ export const Header = () => {
       <div className='header__container'>
         <div className='header__left'>
           <ul className='header__options'>
-            {options.map(option =>
+            {options.map((option, index) =>
               <>
-                <li key={option} className={classNames('header__button', {
+                <li key={index} className={classNames('header__button', {
                   active: option === optionState,
                 })} onClick={() => setOptionState(option)}>{option}</li>
                 <div className='header__vr' />
@@ -28,9 +28,9 @@ export const Header = () => {
           </ul>
 
           <ul className='header__options'>
-            {exchanges.map(exchange =>
+            {exchanges.map((exchange, index) =>
               <>
-                <li key={exchange} className={classNames('header__button', {
+                <li key={index} className={classNames('header__button', {
                   active: exchange === exchangeState,
                 })} onClick={() => setExchangeState(exchange)}>{exchange}</li>
                 <div className='header__vr' />

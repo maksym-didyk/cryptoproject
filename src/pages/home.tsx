@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Header } from '../components/Header';
+import { Calculator } from '../components/Calculator';
 
 export const HomePage = () => {
   return (
@@ -7,8 +8,12 @@ export const HomePage = () => {
       <Header />
 
       <main className='main'>
-        <div className='main__container'>
-          test
+        <div className='main__calculator'>
+          <Calculator currency={'USDT'} />
+        </div>
+
+        <div className='main__calculator'>
+          <Calculator currency={'USDT'} />
         </div>
       </main>
 

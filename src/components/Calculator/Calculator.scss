@@ -1,0 +1,22 @@
+.calculator {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  &__row {
+    padding-left: 4px;
+    background: #2B3139;
+    font-size: 0.7rem;
+    color: #58606C;
+  }
+
+  &__input {
+    color: #D9D9D9;
+    font-size: 0.7rem;
+    background: transparent;
+    border: 0;
+    outline: none;
+    text-align: center;
+    width: 10rem;
+  }
+}

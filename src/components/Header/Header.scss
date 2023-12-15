@@ -12,16 +12,7 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    column-gap: 2rem;
-
-    @include onDesktopMedium {
-      
-    }
-
-    @include onTablet {
-      
-    }
-  
+    column-gap: 2rem;  
   }
 
   &__options {
