@@ -2,12 +2,24 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  color: #58606C;
+  font-size: 0.7rem;
+
+  &__balance {
+    color: #3D9333;
+    padding-left: 1rem;
+  }
 
   &__row {
-    padding-left: 4px;
+    // display: grid;
+    // gap: 0.5rem 0.5rem;
+    // grid-template-columns: repeat(3, 1fr);
+    // justify-items: stretch;
+    // grid-template-rows: repeat(4, 1fr);
+    // border: 1px solid white;
+
+    padding: 0 4px;
     background: #2B3139;
-    font-size: 0.7rem;
-    color: #58606C;
   }
 
   &__input {
@@ -18,5 +30,21 @@
     outline: none;
     text-align: center;
     width: 10rem;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    cursor: pointer;
+    padding: 0.2rem 0;
+
+    &.buy {
+      background: #45FBB4;
+    }
+
+    &.sell {
+      background: #F6465D;
+    }
   }
 }

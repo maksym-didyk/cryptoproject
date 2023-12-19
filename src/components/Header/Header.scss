@@ -25,7 +25,6 @@
     padding: 0.3rem 0.5rem;
     text-transform: uppercase;
     border: 0;
-    background: none;
     font-size: 0.6rem;
     color: #D9D9D9;
     cursor: pointer;
@@ -34,7 +33,7 @@
     &.active {
       background: #FCD535;
       color: #0072B2;
-      font-weight: 500;
+      // font-weight: 500;
     }
   }
 
