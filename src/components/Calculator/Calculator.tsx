@@ -39,7 +39,7 @@ export const Calculator: FC<Props> = ({ currency, type }) => {
       <div className='calculator__row'>
         All 
         <CalculatorInput inputValue={inputAll} setInputValue={setInputAll} />
-        XRP
+        {currency}
       </div>
 
       <div>

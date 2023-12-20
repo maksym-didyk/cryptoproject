@@ -11,6 +11,8 @@
   }
 
   &__row {
+    display: flex;
+    justify-content: space-between;
     // display: grid;
     // gap: 0.5rem 0.5rem;
     // grid-template-columns: repeat(3, 1fr);
@@ -18,7 +20,7 @@
     // grid-template-rows: repeat(4, 1fr);
     // border: 1px solid white;
 
-    padding: 0 4px;
+    padding: 0 0.2rem;
     background: #2B3139;
   }
 
@@ -29,7 +31,7 @@
     border: 0;
     outline: none;
     text-align: center;
-    width: 10rem;
+    width: 4rem;
   }
 
   &__button {
