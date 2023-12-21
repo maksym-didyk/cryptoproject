@@ -1,8 +1,8 @@
 import React, { ChangeEvent, ClipboardEvent, FC } from 'react';
 
 interface Props {
-  inputValue: string,
-  setInputValue: any,
+  inputValue: number | string,
+  setInputValue: (value: number | string) => void,
 }
 
 export const CalculatorInput: FC<Props> = ({ inputValue, setInputValue }) => {

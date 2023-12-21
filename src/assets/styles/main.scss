@@ -6,7 +6,8 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
-  margin: 1rem;
+  margin: 1rem auto;
+  max-width: 1300px;
 
   @include onTablet {
     flex-wrap: wrap;

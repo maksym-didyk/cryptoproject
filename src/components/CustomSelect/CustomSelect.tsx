@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useId, useState } from 'react';
 import './CustomSelect.scss';
 // import { Dropdown, DropdownButton } from 'react-bootstrap';
 import { DropDownType } from '../../types/enums';
@@ -12,8 +12,10 @@ interface Props {
 export const CustomSelect: FC<Props> = ({ data, title, type }) => {
   const [dropdownItem , setDropdownItem] = useState('');
 
+  const selectId = useId();
+
   useEffect(() => {
-    if(type === DropDownType.pair) {setDropdownItem('XRP/USDT')};
+    if (type === DropDownType.pair) {setDropdownItem('XRP/USDT')};
   }, [type]);
 
   return (
@@ -36,7 +38,7 @@ export const CustomSelect: FC<Props> = ({ data, title, type }) => {
         ))}
       </DropdownButton> */}
 
-    <select className='custom-select__select' defaultValue={title} onChange={(e) => setDropdownItem(e.target.value)}>
+    <select className='custom-select__select' name={selectId} defaultValue={title} onChange={(e) => setDropdownItem(e.target.value)}>
       <option value={title} disabled>{title}</option>
       {data.map((item, idx) => (
         <option key={idx} value={item}>{item}</option>

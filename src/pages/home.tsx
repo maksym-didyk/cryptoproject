@@ -9,7 +9,7 @@ import { useState } from 'react';
 export const HomePage = () => {
   const [optionState, setOptionState] = useState('USDT');
 
-  const marketPrice = 0.5318;
+  const marketPrice = 0.6044;
   const options = ['USDT', 'XRP'];
 
   return (
@@ -20,9 +20,9 @@ export const HomePage = () => {
         <CustomSelect type={DropDownType.pair} data={['XRP/USDT','BTC/USDT','ETH/USDT','XRP/BTC']} title={'Choose a pair '}/>
 
         <div className='main__calculator'>
-            <Calculator currency={'USDT'} type={CalculatorButtonType.buy} />
+            <Calculator currency={'USDT'} type={CalculatorButtonType.buy} marketPrice={marketPrice} />
 
-            <Calculator currency={'USDT'} type={CalculatorButtonType.sell} />
+            <Calculator currency={'USDT'} type={CalculatorButtonType.sell} marketPrice={marketPrice} />
         </div>
 
         <div className='main__marketprice'>
