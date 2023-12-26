@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useState } from 'react';
 import { CalculatorInput } from './CalculatorInput/CalculatorInput';
 import './Calculator.scss';
 import { CalculatorButtonType } from '../../types/enums';
@@ -14,45 +14,45 @@ export const Calculator: FC<Props> = ({ currency, type, marketPrice }) => {
   const [inputPrice, setInputPrice] = useState<string | number>('');
   const [inputQuantity, setInputQuantity] = useState<string | number>('');
   const [inputAll, setInputAll] = useState<string | number>('');
-  const [calculating, setCalculating] = useState(false); // Новий стан
 
   const handleSetInputQuantity = (value: number | string) => {
-    // if (inputAll) {
-    //   setInputAll('');
-    // }
-
     setInputQuantity(value);
-  }
 
-  useEffect(() => {
-    if (!calculating && inputAll) {
-      setCalculating(true);
-  
-      if (!inputPrice) {
-        setInputPrice(marketPrice);
-      }
-
-      setInputQuantity(Math.floor(+inputAll / +inputPrice));
-      setCalculating(false);
-
+    if (+inputPrice > 0 && +value > 0) {
+      setInputAll(Math.floor((+inputPrice * +value) * 10000) / 10000);
       return;
     }
 
-    if (!calculating && inputQuantity) {
-      setCalculating(true);
+    setInputAll('');
+  };
 
-      if (!inputPrice) {
-        setCalculating(false);
-        return;
-      }
+  const handleSetInputAll = (value: number | string) => {
+    setInputAll(value);
 
-      setInputAll(Math.floor((+inputPrice * +inputQuantity) * 10000) / 10000);
-      setCalculating(false);
-
+    if (+value <= 0) {
+      setInputQuantity('');
       return;
     }
-    
-  }, [inputAll, inputQuantity, inputPrice, marketPrice, calculating]);
+
+    const price = inputPrice ? inputPrice : marketPrice;
+
+    if (!inputPrice) {
+      setInputPrice(marketPrice);
+    }
+
+    setInputQuantity(Math.floor(+inputAll / +price));
+  };
+
+  const handleSetInputPrice = (value: number | string) => {
+    setInputPrice(value);
+
+    if (+value > 0 && +inputQuantity > 0) {
+      setInputAll(Math.floor((+value * +inputQuantity) * 10000) / 10000);
+      return;
+    }
+
+    setInputAll('');
+  };
 
   return (
     <div className='calculator'>
@@ -66,7 +66,7 @@ export const Calculator: FC<Props> = ({ currency, type, marketPrice }) => {
 
       <div className='calculator__row'>
         Price 
-        <CalculatorInput inputValue={inputPrice} setInputValue={setInputPrice} />
+        <CalculatorInput inputValue={inputPrice} setInputValue={handleSetInputPrice} />
         {currency}
       </div>
 
@@ -78,7 +78,7 @@ export const Calculator: FC<Props> = ({ currency, type, marketPrice }) => {
 
       <div className='calculator__row'>
         All 
-        <CalculatorInput inputValue={inputAll} setInputValue={setInputAll} />
+        <CalculatorInput inputValue={inputAll} setInputValue={handleSetInputAll} />
         {currency}
       </div>
 
