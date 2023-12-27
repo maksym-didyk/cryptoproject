@@ -5,7 +5,11 @@
     display: flex;
     justify-content: space-between;
     gap: 1rem;
-    padding: 0 1.1rem;
+    padding: 0 1rem;
+
+    @include onDesktopSmall {
+      padding: 0.5rem;
+    }
   }
 
   &__left {
@@ -19,6 +23,10 @@
     display: flex;
     border: 1px solid #3E3C39;
     margin: 0.8rem 0;
+
+    @include onPhone {
+      margin-top: 0;
+    }
   }
 
   &__button {
@@ -61,6 +69,7 @@
 
     @include onPhone {
       flex-wrap: wrap;
+      align-items: flex-start;
     }
   }
 

@@ -16,10 +16,10 @@ export const Calculator: FC<Props> = ({ currency, type, marketPrice }) => {
   const [inputAll, setInputAll] = useState<string | number>('');
 
   const handleSetInputQuantity = (value: number | string) => {
-    setInputQuantity(value);
+    setInputQuantity(() => value);
 
     if (+inputPrice > 0 && +value > 0) {
-      setInputAll(Math.floor((+inputPrice * +value) * 10000) / 10000);
+      setInputAll(() => (Math.floor((+inputPrice * +value) * 10000) / 10000));
       return;
     }
 
@@ -27,7 +27,7 @@ export const Calculator: FC<Props> = ({ currency, type, marketPrice }) => {
   };
 
   const handleSetInputAll = (value: number | string) => {
-    setInputAll(value);
+    setInputAll(() => value);
 
     if (+value <= 0) {
       setInputQuantity('');
@@ -37,17 +37,17 @@ export const Calculator: FC<Props> = ({ currency, type, marketPrice }) => {
     const price = inputPrice ? inputPrice : marketPrice;
 
     if (!inputPrice) {
-      setInputPrice(marketPrice);
+      setInputPrice(() => marketPrice);
     }
 
-    setInputQuantity(Math.floor(+inputAll / +price));
+    setInputQuantity(() => Math.floor(+value / +price));
   };
 
   const handleSetInputPrice = (value: number | string) => {
-    setInputPrice(value);
+    setInputPrice(() => value);
 
     if (+value > 0 && +inputQuantity > 0) {
-      setInputAll(Math.floor((+value * +inputQuantity) * 10000) / 10000);
+      setInputAll(() => Math.floor((+value * +inputQuantity) * 10000) / 10000);
       return;
     }
 

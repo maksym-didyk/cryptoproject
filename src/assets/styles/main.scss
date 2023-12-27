@@ -6,11 +6,16 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
-  margin: 1rem auto;
+  padding: 1rem;
+  margin: 0 auto;
   max-width: 1300px;
 
-  @include onTablet {
+  @include onDesktopSmall {
     flex-wrap: wrap;
+  }
+
+  @include onDesktopSmall {
+    padding: 0.5rem;
   }
 
   &__calculator {

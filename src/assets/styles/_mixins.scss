@@ -10,6 +10,12 @@
   }
 }
 
+@mixin onDesktopSmall {
+  @media (max-width: 1230px) {
+    @content;
+  }
+}
+
 @mixin onTablet {
   @media (max-width: 992px) {
     @content;
